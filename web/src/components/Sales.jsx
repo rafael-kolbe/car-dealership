@@ -81,7 +81,7 @@ export default function Sales() {
       const newSales = sales;
       const saleIndex = newSales.findIndex(sale => sale.id === saleId);
       newSales.splice(saleIndex, 1);
-      setCars([...newSales]);
+      setSales([...newSales]);
     } catch (error) {
       window.alert(error.response.data.message);
     }
