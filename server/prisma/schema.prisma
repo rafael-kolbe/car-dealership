@@ -1,0 +1,48 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator erd {
+  provider = "prisma-erd-generator"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id       String @id @default(cuid())
+  username String
+  password String
+}
+
+model Sellers {
+  id      String  @id @default(cuid())
+  name    String  @unique
+  deleted Boolean @default(false)
+  sales   Sales[]
+}
+
+model Cars {
+  id        String  @id @default(cuid())
+  car_model String  @unique
+  price     Int
+  deleted   Boolean @default(false)
+  sales     Sales[]
+}
+
+model Sales {
+  id        String  @id @default(cuid())
+  seller_id String
+  car_id    String
+  sold_for  Int
+  sold_at   String
+  deleted   Boolean @default(false)
+
+  sold_by  Sellers @relation(fields: [seller_id], references: [id])
+  sold_car Cars    @relation(fields: [car_id], references: [id])
+}

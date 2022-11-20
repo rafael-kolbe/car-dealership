@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Sales" ALTER COLUMN "sold_at" DROP DEFAULT,
+ALTER COLUMN "sold_at" SET DATA TYPE TEXT;
