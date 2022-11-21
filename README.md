@@ -2,7 +2,7 @@
 A management application for a car dealership company.
 
 # Setup
-Walkthrough video explaining the application: [youtube](https://www.youtube.com)
+Walkthrough video explaining the application: [youtube](https://youtu.be/w_AZqIqzNp0)
 
 ### inside `/server`
 Run `npm install` to install all dependencies.<br>
